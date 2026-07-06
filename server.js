@@ -6,11 +6,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Gmail transporter
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
     user: "mizzan888@gmail.com",
-    pass: "rstgefnesntiepf" // your Gmail App Password (NO SPACES)
+    pass: "rstgefnesntiepf" // MUST be 16 chars, NO spaces
   }
 });
 
@@ -47,4 +48,6 @@ ABQ Taxi Team
   }
 });
 
-app.listen(3000, () => console.log("Email server running on port 3000"));
+// ⭐ Render requires this:
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
