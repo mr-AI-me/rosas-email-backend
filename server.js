@@ -13,8 +13,8 @@ app.post("/send-email", async (req, res) => {
 
   try {
     await resend.emails.send({
-      from: "RosasTransportation@rosastransport.com",
-      to: "mizzan888@gmail.com",
+      from: "mizzan888@gmail.com",
+      to: email,
       subject: "Your Albuquerque Taxi Booking Confirmation",
       text: `
 Hello ${name},
