@@ -6,15 +6,15 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const resend = new Resend("re_Yb1PuCv2_66j2uxG3naJW66k7tbapxN6i");
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 app.post("/send-email", async (req, res) => {
   const { name, pickup, dropoff, phone, email } = req.body;
 
   try {
     await resend.emails.send({
-      from: "onboarding@resend.dev",
-      to: email,
+      from: "RosasTransportation@rosastransport.com",
+      to: "mizzan888@gmail.com",
       subject: "Your Albuquerque Taxi Booking Confirmation",
       text: `
 Hello ${name},
